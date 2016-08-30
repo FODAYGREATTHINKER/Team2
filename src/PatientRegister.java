@@ -1,5 +1,7 @@
 package com.example.medicalbookingapp;
 
+import java.util.HashMap;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,20 +50,12 @@ public class PatientRegister extends Activity {
 				String username = String.valueOf(usernamein.getText().toString());
 				String password = String.valueOf(passwordin.getText().toString());
 				
+				//insert details
 				ldb.insertpatient(name,username,password);
-				String count=ldb.getdata();
-				textview2 = (TextView) findViewById(R.id.textView2);
-				textview2.setText(count);
 				
-				//Logindatabase ldb=new Logindatabase(this);
-				
-				// saves details to the object
-				//Patient patient = new Patient(name, username, password);
-				//Database object = Database.getInstance();
-				//object.hm.put(username, patient);
-				// goes back to login
-				
-				//back.performClick();
+			
+				//goes back to main
+				back.performClick();
 			}
 		});
 
