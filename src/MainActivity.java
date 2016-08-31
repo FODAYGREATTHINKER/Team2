@@ -47,39 +47,33 @@ public class MainActivity extends Activity {
 				passwordin = (EditText) findViewById(R.id.logpasswordin);
 				notice = (TextView) findViewById(R.id.notice);
 
-				String username = String.valueOf(usernamein.getText().toString());
-				String password = String.valueOf(passwordin.getText().toString());
+				String username = String.valueOf(usernamein.getText()
+						.toString());
+				String password = String.valueOf(passwordin.getText()
+						.toString());
 
-				
-				
-				
-				//creates a new object to get access to the database
-				Logindatabase ldb=new Logindatabase(getBaseContext());
-				//hashmap for username and passwords 
-				HashMap uandp =new HashMap(); 
-				//assign all the usernames and passwords from database
-				uandp=ldb.getdata();
-				
-				
+				// creates a new object to get access to the database
+				Logindatabase ldb = new Logindatabase(getBaseContext());
+				// hashmap for username and passwords
+				HashMap uandp = new HashMap();
+				// assign all the usernames and passwords from database
+				uandp = ldb.getdata();
 
 				for (Object key : uandp.keySet()) {
 
 					if (key.equals(username)) {
-						
-						
-						Intent Intent = new Intent(MainActivity.this, Home.class);
-						Intent.putExtra(username, "");
+
+						Intent Intent = new Intent(MainActivity.this,Home.class);
+						Intent.putExtra("username",username );
 						startActivity(Intent);
-						
 
 					} else {
-						
+
 					}
-					
+
 				}
 				shownotice();
 
-			
 			}
 			
 		});
