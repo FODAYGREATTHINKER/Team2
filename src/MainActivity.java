@@ -55,17 +55,21 @@ public class MainActivity extends Activity {
 				// creates a new object to get access to the database
 				Logindatabase ldb = new Logindatabase(getBaseContext());
 				// hashmap for username and passwords
-				HashMap uandp = new HashMap();
+				HashMap uandp = new HashMap<String,String>();
 				// assign all the usernames and passwords from database
 				uandp = ldb.getdata();
 
 				for (Object key : uandp.keySet()) {
-
+					
 					if (key.equals(username)) {
-
-						Intent Intent = new Intent(MainActivity.this,Home.class);
-						Intent.putExtra("username",username );
-						startActivity(Intent);
+						String pass=(String)uandp.get(username);
+						
+						if(password.equals(pass)){
+							Intent Intent = new Intent(MainActivity.this,Home.class);
+							Intent.putExtra("username",username );
+							startActivity(Intent);
+						}
+						
 
 					} else {
 

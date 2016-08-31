@@ -28,7 +28,7 @@ public class Logindatabase extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// creates table
 		db.execSQL("create table PatientRegister"
-				+ "(Name text,Age integer,Gender text,Username text,Password text)");
+				+ "(Name text,Age integer,Gender text,Username text primary key,Password text)");
 
 	}
 
@@ -36,8 +36,8 @@ public class Logindatabase extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-		// db.execSQL("DROP TABLE IF EXIST PatientRegister");
-		// onCreate(db);
+		 db.execSQL("DROP TABLE IF EXIST PatientRegister");
+		 onCreate(db);
 	}
 
 	public void insertpatient(String Name,Integer Age,String Gender, String Username, String Password) {
@@ -72,8 +72,7 @@ public class Logindatabase extends SQLiteOpenHelper {
 		while (cursor.isAfterLast() == false) {
 			
 			//String password = cursor.getString(3);
-			hm.put(cursor.getString(cursor.getColumnIndex(column_username)), cursor.getColumnIndex(column_password));
-
+			hm.put(cursor.getString(cursor.getColumnIndex(column_username)), cursor.getString(cursor.getColumnIndex(column_password)));
 			cursor.moveToNext();
 		}
 

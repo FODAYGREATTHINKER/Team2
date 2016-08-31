@@ -78,7 +78,12 @@ public class PatientRegister extends Activity {
 					gender = "male";
 				}
 
-				//checking inputs for user exceptions. if user exception is found it will set userexception boolean variable true.
+				
+				//checks for previous usernames if the username is available
+				userexception =checkprevioususernames(username);
+
+				// checking inputs for user exceptions. if user exception is
+				// found it will set userexception boolean variable true.
 				if (!(age > 1)) {
 					registernotice.setText("Please enter valid age!");
 					userexception = true;
@@ -107,6 +112,26 @@ public class PatientRegister extends Activity {
 			}
 		});
 
+	}
+	
+
+	public boolean checkprevioususernames(String username) {
+		boolean yesprevious = false;
+		Logindatabase ldb = new Logindatabase(getBaseContext());
+		// hashmap for username and passwords
+		HashMap uandp = new HashMap<String, String>();
+		// assign all the usernames and passwords from database
+		uandp = ldb.getdata();
+
+		for (Object key : uandp.keySet()) {
+
+			if (key.equals(username)) {
+				yesprevious = true;
+				registernotice.setText("Username is not available!");
+			}
+
+		}
+		return yesprevious;
 	}
 
 }
