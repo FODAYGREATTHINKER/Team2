@@ -65,9 +65,12 @@ public class MainActivity extends Activity {
 				for (Object key : uandp.keySet()) {
 
 					if (key.equals(username)) {
-
+						
+						
 						Intent Intent = new Intent(MainActivity.this, Home.class);
+						Intent.putExtra(username, "");
 						startActivity(Intent);
+						
 
 					} else {
 						

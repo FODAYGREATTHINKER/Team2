@@ -14,11 +14,11 @@ public class Logindatabase extends SQLiteOpenHelper {
 	private static String DBName = "Login.db";
 	private static String TableName = "PatientRegister";
 	public static String column_name = "Name";
-	// public static String column_age="Age";
+	public static String column_gender="Gender";
+	public static String column_age="Age";
 	public static String column_username = "Username";
 	public static String column_password = "Password";
-
-	// public static String column_gender="Gender";
+    
 
 	public Logindatabase(Context context) {
 		super(context, DBName, null, 1);
@@ -28,7 +28,7 @@ public class Logindatabase extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// creates table
 		db.execSQL("create table PatientRegister"
-				+ "(Name text,Username text,Password text)");
+				+ "(Name text,Age integer,Gender text,Username text,Password text)");
 
 	}
 
@@ -40,11 +40,13 @@ public class Logindatabase extends SQLiteOpenHelper {
 		// onCreate(db);
 	}
 
-	public void insertpatient(String Name, String Username, String Password) {
+	public void insertpatient(String Name,Integer Age,String Gender, String Username, String Password) {
 
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues cv = new ContentValues();
-		cv.put("NAME", Name);
+		cv.put("Name", Name);
+		cv.put("Age", Age);
+		cv.put("Gender", Gender);
 		cv.put("Username", Username);
 		cv.put("Password", Password);
 		db.insert("PatientRegister", null, cv);
@@ -78,5 +80,37 @@ public class Logindatabase extends SQLiteOpenHelper {
 		return hm;
 
 	}
+	/**
+	 * This method will return hashmap with all data for Application database.
+	 * @return hm will contain all the data
+	 */
+	public HashMap getuserdatafordatabase() {
+		// geting first row and printing it
+		SQLiteDatabase db = this.getReadableDatabase();
+
+		// hashmap is for storing data to return
+		HashMap<String, String> hm = new HashMap();
+
+		Cursor cursor = db.rawQuery("SELECT * from PatientRegister", null);
+		cursor.moveToFirst();
+		String userdata="";
+		
+		while (cursor.isAfterLast() == false) {
+			
+			//String password = cursor.getString(3);
+			//hm.put(cursor.getString(cursor.getColumnIndex(column_username)), cursor.getColumnIndex(column_password),cursor.getString(cursor.getColumnIndex(column_username)));
+			userdata=cursor.getString(cursor.getColumnIndex(column_name))+""+cursor.getString(cursor.getColumnIndex(column_age))+""+cursor.getString(cursor.getColumnIndex(column_gender))+""+cursor.getString(cursor.getColumnIndex(column_username));
+			hm.put(cursor.getString(cursor.getColumnIndex(column_username)),userdata);
+			cursor.moveToNext();
+		}
+
+		return hm;
+
+	}
+	
+	
+	
+	
+	
 
 }

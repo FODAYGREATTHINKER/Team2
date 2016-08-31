@@ -7,14 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class PatientRegister extends Activity {
 	Button back, register;
-	EditText namein, usernamein, passwordin;
+	EditText namein, usernamein, passwordin,Agein;
 	TextView textview2;
-	
+	CheckBox femalein,malein;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,11 +35,18 @@ public class PatientRegister extends Activity {
 			}
 		});
 
-		// register when register button pressed and gets data from EditTexts
+		// register when register button pressed and gets data from elements
 		register = (Button) findViewById(R.id.Signup);
 		namein = (EditText) findViewById(R.id.namein);
 		usernamein = (EditText) findViewById(R.id.usernamein);
 		passwordin = (EditText) findViewById(R.id.passwordin);
+		Agein=(EditText)findViewById(R.id.editText1);
+		femalein=(CheckBox)findViewById(R.id.checkBox1);
+		malein=(CheckBox)findViewById(R.id.checkBox2);
+		
+		
+		
+		
 		
 		register.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -47,11 +55,19 @@ public class PatientRegister extends Activity {
 				Logindatabase ldb=new Logindatabase(getBaseContext());
 				
 				String name = String.valueOf(namein.getText().toString());
+				Integer age=Integer.valueOf(Agein.getText().toString());
 				String username = String.valueOf(usernamein.getText().toString());
 				String password = String.valueOf(passwordin.getText().toString());
 				
+				String gender="";
+				if(femalein.isEnabled()){
+					gender="female";
+				}else{
+					gender="male";
+				}
+				
 				//insert details
-				ldb.insertpatient(name,username,password);
+				ldb.insertpatient(name,age,gender,username,password);
 				
 			
 				//goes back to main
