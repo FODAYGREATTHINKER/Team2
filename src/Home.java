@@ -26,9 +26,5 @@ public class Home extends Activity {
 	
 	}
 
-	String getusernamename(String username) {
-
-		wname.setText(username);
-		return username;
-	}
+	
 }
