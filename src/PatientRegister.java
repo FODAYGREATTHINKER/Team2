@@ -26,7 +26,7 @@ public class PatientRegister extends Activity {
 
 		// back button
 		back = (Button) findViewById(R.id.back);
-
+		// goes back to login screen
 		back.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -52,57 +52,40 @@ public class PatientRegister extends Activity {
 		register.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// boolean variable if user has wrong inputs or empty inputs.
-				boolean userexception = false;
 
-				Logindatabase ldb = new Logindatabase(getBaseContext());
-
-				String name = String.valueOf(namein.getText().toString());
-				Integer age = 0;
-				try {
-					age = Integer.valueOf(Agein.getText().toString());
-				} catch (NumberFormatException ex) {
-					userexception = true;
-				}
+				// assigns variables with user entered values
 				String username = String.valueOf(usernamein.getText()
 						.toString());
 				String password = String.valueOf(passwordin.getText()
 						.toString());
 				String passwordagian1 = String.valueOf(passwordagian.getText()
 						.toString());
+				String name = String.valueOf(namein.getText().toString());
+
+				// boolean variable if user has wrong inputs or empty inputs.
+				boolean userexception = false;
+				
+				/**
+				 * checks userinput with the methods. if inputs are wrong boolean variable 
+				 * userexception will be true.
+				 */
+				userexception = checkprevioususernames(username);
+				userexception = checkforequalpasswords(password, passwordagian1);
+				userexception = checkemptyinput(username, password);
+
+				Integer age = 0;
+				userexception = checkvalidage(age);
 
 				String gender = "";
-				if (femalein.isChecked()) {
-					gender = "female";
-				} else {
-					gender = "male";
-				}
+				userexception = checkgenderinput(gender);
 
-				
-				//checks for previous usernames if the username is available
-				userexception =checkprevioususernames(username);
-
-				// checking inputs for user exceptions. if user exception is
-				// found it will set userexception boolean variable true.
-				if (!(age > 1)) {
-					registernotice.setText("Please enter valid age!");
-					userexception = true;
-				}
-				if (!(password.equals(passwordagian1))) {
-					registernotice.setText("password does not match!");
-					userexception = true;
-				}
-				if (username.equals("") || password.equals("")) {
-					registernotice.setText("please enter password");
-					userexception = true;
-				}
-				if (!(femalein.isChecked() && femalein.isChecked())) {
-					registernotice.setText("please fill all fields");
-					userexception = true;
-				}
-
+				/**
+				 * if userexceptions are false user data will be entered to the database.
+				 */
 				if (userexception == false) {
 
+					
+					Logindatabase ldb = new Logindatabase(getBaseContext());
 					// insert details
 					ldb.insertpatient(name, age, gender, username, password);
 
@@ -113,8 +96,60 @@ public class PatientRegister extends Activity {
 		});
 
 	}
-	
 
+	public boolean checkgenderinput(String gender) {
+		boolean userexception = false;
+
+		if (femalein.isChecked()) {
+			gender = "female";
+		} else {
+			gender = "male";
+		}
+
+		if (!(femalein.isChecked() && femalein.isChecked())) {
+			registernotice.setText("please fill all fields");
+			userexception = true;
+		}
+		return userexception;
+	}
+	
+	public boolean checkvalidage(int age) {
+		boolean userexception = false;
+		
+		try {
+			age = Integer.valueOf(Agein.getText().toString());
+		} catch (NumberFormatException ex) {
+			userexception = true;
+		}
+		
+		if (!(age > 1)) {
+			registernotice.setText("Please enter valid age!");
+			userexception = true;
+		}
+		return userexception;
+	}
+	
+	
+	public boolean checkemptyinput(String username, String password) {
+		boolean userexception = false;
+
+		if (username.equals("") || password.equals("")) {
+			registernotice.setText("please fill all fields");
+			userexception = true;
+		}
+		return userexception;
+	}
+	
+	public boolean checkforequalpasswords(String password, String passwordagian1) {
+		boolean userexception = false;
+
+		if (!(password.equals(passwordagian1))) {
+			registernotice.setText("password does not match!");
+			userexception = true;
+		}
+		return userexception;
+	}
+	
 	public boolean checkprevioususernames(String username) {
 		boolean yesprevious = false;
 		Logindatabase ldb = new Logindatabase(getBaseContext());
@@ -129,7 +164,6 @@ public class PatientRegister extends Activity {
 				yesprevious = true;
 				registernotice.setText("Username is not available!");
 			}
-
 		}
 		return yesprevious;
 	}
