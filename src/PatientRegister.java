@@ -63,28 +63,26 @@ public class PatientRegister extends Activity {
 				String name = String.valueOf(namein.getText().toString());
 
 				// boolean variable if user has wrong inputs or empty inputs.
-				boolean userexception = false;
+				
 				
 				/**
 				 * checks userinput with the methods. if inputs are wrong boolean variable 
 				 * userexception will be true.
 				 */
-				userexception = checkprevioususernames(username);
-				userexception = checkforequalpasswords(password, passwordagian1);
-				userexception = checkemptyinput(username, password);
+				boolean usernameexception = checkprevioususernames(username);
+				boolean passwordexception = checkforequalpasswords(password, passwordagian1);
+				boolean empltyexception = checkemptyinput(username, password);
 
 				Integer age = 0;
-				userexception = checkvalidage(age);
+				boolean ageexception  = checkvalidage(age);
 
 				String gender = "";
-				userexception = checkgenderinput(gender);
+				boolean genderexception = checkgenderinput(gender);
 
 				/**
 				 * if userexceptions are false user data will be entered to the database.
 				 */
-				if (userexception == false) {
-
-					
+				if (usernameexception==false&&passwordexception==false&&empltyexception==false&&ageexception==false&&genderexception==false) {
 					Logindatabase ldb = new Logindatabase(getBaseContext());
 					// insert details
 					ldb.insertpatient(name, age, gender, username, password);
@@ -164,6 +162,7 @@ public class PatientRegister extends Activity {
 				yesprevious = true;
 				registernotice.setText("Username is not available!");
 			}
+
 		}
 		return yesprevious;
 	}
