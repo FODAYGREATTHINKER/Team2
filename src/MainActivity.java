@@ -64,6 +64,7 @@ public class MainActivity extends Activity {
 					if (key.equals(username)) {
 						String pass=(String)uandp.get(username);
 						
+						//check if password is bigger than 1
 						if(password.equals(pass)){
 							Intent Intent = new Intent(MainActivity.this,Home.class);
 							Intent.putExtra("username",username );
