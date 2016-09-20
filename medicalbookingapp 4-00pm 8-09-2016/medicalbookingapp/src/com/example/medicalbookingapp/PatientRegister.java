@@ -2,14 +2,9 @@ package com.example.medicalbookingapp;
 
 import java.util.HashMap;
 import java.util.MissingResourceException;
-
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
@@ -90,79 +85,13 @@ public class PatientRegister extends Activity {
 					Logindatabase ldb = new Logindatabase(getBaseContext());
 					// insert details
 					ldb.insertpatient(name, age, gender, username, password);
-					
-					//shows massege and goes back to loging
-					message();
-					
+					// goes back to main
+					back.performClick();
 				}
 			}
 		});
 	}
 
-	public void message(){
-		final AlertDialog.Builder build = new AlertDialog.Builder(this);
-		build.setCancelable(true);
-		build.setTitle("Sucess!");
-		build.setMessage("Account Sucessfully created!");
-		build.show();
-		new CountDownTimer(1000, 100) {
-
-		     public void onFinish() {
-		    	 back.performClick();
-		     }
-
-			@Override
-			public void onTick(long arg0) {
-				
-			}
-		}.start();
-		
-	}
-	// checks if input age is valid
-	public boolean checkvalidage(int age) {
-		boolean userexception = false;
-
-		try {
-			age = Integer.valueOf(Agein.getText().toString());
-		} catch (NumberFormatException ex) {
-			userexception = true;
-		}
-
-		if (!(age > 1)) {
-			registernotice.setText("Please enter valid age!");
-			userexception = true;
-		}
-		return userexception;
-	}
-
-	// checks if username is already taken
-	public boolean checkprevioususernames(String username) {
-		boolean yesprevious = false;
-		Logindatabase ldb = new Logindatabase(getBaseContext());
-		// hashmap for username and passwords
-		HashMap uandp = new HashMap<String, String>();
-		// assign all the usernames and passwords from database
-		uandp = ldb.getdata();
-		for (Object key : uandp.keySet()) {
-			if (key.equals(username)) {
-				yesprevious = true;
-				registernotice.setText("Username is not available!");
-			}
-		}
-		return yesprevious;
-	}
-
-	// checks if inputs are empty
-	public boolean checkemptyinput(String username, String password) {
-		boolean userexception = false;
-		if (username.equals("") || password.equals("")) {
-			registernotice.setText("please fill all fields");
-			userexception = true;
-		}
-		return userexception;
-	}
-
-	// checks for user name length
 	public boolean checkinputlength(String name, String username,
 			String password) {
 		boolean userexception = false;
@@ -181,7 +110,6 @@ public class PatientRegister extends Activity {
 		return userexception;
 	}
 
-	// checks errors in genderinput
 	public boolean checkgenderinput(String gender) {
 		boolean userexception = false;
 		if (femalein.isChecked()) {
@@ -203,7 +131,31 @@ public class PatientRegister extends Activity {
 		return userexception;
 	}
 
-	// checks if password confirmation is correct
+	public boolean checkvalidage(int age) {
+		boolean userexception = false;
+
+		try {
+			age = Integer.valueOf(Agein.getText().toString());
+		} catch (NumberFormatException ex) {
+			userexception = true;
+		}
+
+		if (!(age > 1)) {
+			registernotice.setText("Please enter valid age!");
+			userexception = true;
+		}
+		return userexception;
+	}
+
+	public boolean checkemptyinput(String username, String password) {
+		boolean userexception = false;
+		if (username.equals("") || password.equals("")) {
+			registernotice.setText("please fill all fields");
+			userexception = true;
+		}
+		return userexception;
+	}
+
 	public boolean checkforequalpasswords(String password, String passwordagian1) {
 		boolean userexception = false;
 		if (!(password.equals(passwordagian1))) {
@@ -213,4 +165,19 @@ public class PatientRegister extends Activity {
 		return userexception;
 	}
 
+	public boolean checkprevioususernames(String username) {
+		boolean yesprevious = false;
+		Logindatabase ldb = new Logindatabase(getBaseContext());
+		// hashmap for username and passwords
+		HashMap uandp = new HashMap<String, String>();
+		// assign all the usernames and passwords from database
+		uandp = ldb.getdata();
+		for (Object key : uandp.keySet()) {
+			if (key.equals(username)) {
+				yesprevious = true;
+				registernotice.setText("Username is not available!");
+			}
+		}
+		return yesprevious;
+	}
 }

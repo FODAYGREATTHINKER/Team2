@@ -1,11 +1,6 @@
 package com.example.medicalbookingapp;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,15 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.view.View.OnClickListener;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
-import android.database.sqlite.SQLiteOpenHelper;
-
-import java.text.ParseException;
 //Page for making bookings.
 public class BookingPage extends Activity implements OnItemSelectedListener {
     private Spinner spinner, spinner2, spinner3;
@@ -32,7 +21,6 @@ public class BookingPage extends Activity implements OnItemSelectedListener {
     EditText date;
     String name = Home.getusername();
     ArrayAdapter<CharSequence> adapter1;
-    TextView error;
     /*
      * When the page is opened, this method creates the functions / methods for
      * the booking page.
@@ -91,7 +79,6 @@ public class BookingPage extends Activity implements OnItemSelectedListener {
         }
     }
     /* gets the information from application and stores it in booking database. */
-    //checks for errors.
     public void confirm() {
         Button b = (Button) findViewById(R.id.button1);
         b.setOnClickListener(new View.OnClickListener() {
@@ -105,113 +92,12 @@ public class BookingPage extends Activity implements OnItemSelectedListener {
                 String doctor = spinner2.getSelectedItem().toString();
                 String time = spinner3.getSelectedItem().toString();
                 String dates = String.valueOf(date.getText().toString());
-                
-                if(dateEmpty()==true && dateLength()==true && dateFormat()==true && 
-                checkTime("Patient_Bookings","MedicalCentres",med,"DoctorName",doctor,"Booking_Date",dates,"Booking_Time",time)== true
-                		  && isDateWithin3Months(date.getText().toString(), "dd/MM/yyyy")==true){
                 bd.insertBooking(name, med, doctor, dates, time);
                 bd.close();
                 finish();
-                Toast.makeText(getApplicationContext(), "Booking confirmed", Toast.LENGTH_LONG).show();
-                }
-                }
-                
-            
+            }
         });
     }
-    //Checks if the date is empty.
-    public boolean dateEmpty(){
-    	error= (TextView) findViewById(R.id.errorDate);
-    	if(date.getText().toString().length()==0){
-    		
-    		error.setText("please input a date");
-    		return false;
-    	}
-    	return true;
-    }
-    public boolean dateLength(){
-    	if(date.getText().toString().length()>10){
-    		error.setText("Date length too long");
-    		return false;
-    	}
-    	return true;
-    }
-    //Check if the date format is true.
-    public boolean dateFormat(){
-    	int year;
-    	SimpleDateFormat fm = new SimpleDateFormat("dd/MM/yyyy");
-    	try{
-    		Date dates = fm.parse(date.getText().toString());
-    		if(new Date().after(dates)){
-    		error.setText("Can't book past dates");
-    		return false;
-    		
-    		}
-    		return true;
-    	}
-    	catch(ParseException e){
-    		error.setText("Wrong format for date");
-    		return false;
-    	}
-    }
-    
-    //check date
-    public boolean isDateWithin3Months(String dateToValidate, String dateFormat){
-    	SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
-    	sdf.setLenient(false);
-    	try{
-    			Date date = sdf.parse(dateToValidate);
-    			Calendar currentDateAfter3Months = Calendar.getInstance();
-    			currentDateAfter3Months.add(Calendar.MONTH, 3);	
-    			
-    			// current date before 3 months
-    			Calendar currentDateBefore3Months = Calendar.getInstance();
-    			currentDateBefore3Months.add(Calendar.MONTH, -3);
-    			
-    			if (date.before(currentDateAfter3Months.getTime())
-    					&& date.after(currentDateBefore3Months.getTime())) {
-
-    				//ok everything is fine, date in range
-    				return true;
-
-    			} else {
-    				error.setText("Book only within 3 months");
-    				return false;
-    				
-    			}
-
-    		} catch (ParseException e) {
-
-    			e.printStackTrace();
-    			
-    			return false;
-    		}
-    	
-
-    	
-    }
-    
-    //checks if date and time is already taken.
-    public boolean checkTime(String tableName,String med, String medField, String Doc, String docField, String Booking, String BookField, String Time, String timeField){
-    	
-    	BookingDatabase helper = new BookingDatabase(this);
-    	SQLiteDatabase bd = helper.getReadableDatabase();
-    	
-    	String Query = "Select * from " + tableName + " where " + med+ " LIKE '%" + medField + "%' AND " + Doc+ " LIKE '%" + docField + "%' AND " + Booking + " LIKE '%" + BookField + "%' AND " 
-    					+ Time + " LIKE '%" + timeField + "%'"; ;  
-    	Cursor c = bd.rawQuery(Query, null);
-    	if((c.getCount() <=0)){
-    		
-    		c.close();
-    		return true;
-    	}
-    	
-    	error.setText("Time already booked.");
-    	c.close();
-    	return false;
-    	
-    }
-    
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
     }
