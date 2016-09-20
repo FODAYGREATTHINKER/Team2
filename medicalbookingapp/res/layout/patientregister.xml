@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/back"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="back" />
+
+    <EditText
+        android:id="@+id/namein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usernamein"
+        android:layout_below="@+id/patient "
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="text"
+        android:nextFocusDown="@+id/editText1" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/namein"
+        android:layout_below="@+id/namein"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="number"
+        android:nextFocusDown="@+id/checkBox1" />
+
+    <TextView
+        android:id="@+id/patient "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/back"
+        android:layout_alignBottom="@+id/back"
+        android:layout_centerHorizontal="true"
+        android:text="Patient Signup"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/back"
+        android:nextFocusDown="@+id/usernamein"
+        android:text="Male" />
+
+    <Button
+        android:id="@+id/Signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:text="Signup" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBox1"
+        android:layout_alignBottom="@+id/checkBox1"
+        android:layout_alignLeft="@+id/editText1"
+        android:text="Female" />
+
+    <EditText
+        android:id="@+id/passwordin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usernamein"
+        android:layout_below="@+id/usernamein"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:nextFocusDown="@+id/passwordinagain" />
+
+    <EditText
+        android:id="@+id/passwordagain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passwordin"
+        android:layout_below="@+id/passwordin"
+        android:ems="10"
+        android:hint="Password again"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/usernamein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="text"
+        android:nextFocusDown="@+id/passwordin" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/registernotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/back"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/Red"
+        android:textColorHint="@color/Red" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/registernotice"
+        android:text="Personal details" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Account details" />
+
+</RelativeLayout>
