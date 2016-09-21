@@ -1,0 +1,21 @@
+package com.example.medicalbookingapp.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.example.medicalbookingapp.Home;
+
+public class viewBookingsTest {
+
+	
+	protected void setUp() throws Exception {
+		
+	}
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

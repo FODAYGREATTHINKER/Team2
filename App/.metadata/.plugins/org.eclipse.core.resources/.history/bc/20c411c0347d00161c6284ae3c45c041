@@ -1,0 +1,87 @@
+package com.example.medicalbookingapp.test;
+
+import com.example.medicalbookingapp.Home;
+import com.example.medicalbookingapp.R;
+
+import android.test.ActivityInstrumentationTestCase2;
+import android.test.suitebuilder.annotation.SmallTest;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class homeTests extends ActivityInstrumentationTestCase2<Home> {
+
+	public homeTests() {
+		super(Home.class);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	protected void setUp() throws Exception {
+		// TODO Auto-generated method stub
+		super.setUp();
+	}
+
+	/*
+	 * Test to check if there is a textview of the home page, showing the users
+	 * username.
+	 */
+	@SmallTest
+	public void testTextView() {
+		TextView testName = (TextView) getActivity().findViewById(R.id.wname);
+		assertNotNull(testName);
+	}
+
+	/*
+	 * Test to check if there is a button for making bookings in our home page.
+	 */
+	@SmallTest
+	public void testMakeBookingBtn() {
+		Button makeBook = (Button) getActivity().findViewById(R.id.button1);
+		assertNotNull(makeBook);
+	}
+
+	/*
+	 * Test to check if there is a button for view bookings in our home page.
+	 */
+	@SmallTest
+	public void testViewBookingBtn() {
+		Button viewBook = (Button) getActivity().findViewById(R.id.viewBtn);
+		assertNotNull(viewBook);
+	}
+
+	/*
+	 * Test to check if there is a button for about bookings in our home page.
+	 */
+	@SmallTest
+	public void testAboutBtn() {
+		Button about = (Button) getActivity().findViewById(R.id.aboutBtn);
+		assertNotNull(about);
+	}
+
+	/*
+	 * Test to check if there is a button for logging out of the app in our home
+	 * page.
+	 */
+	@SmallTest
+	public void testLogoutBtn() {
+		Button lgOut = (Button) getActivity().findViewById(R.id.logoutBtn);
+		assertNotNull(lgOut);
+	}
+
+	public void testButton() {
+		mActivity.runOnUiThread(new Runnable() {
+			public void run() {
+				mButton.performClick();
+				nextActivity = getActivity();
+				assertEquals(nextActivity, Question.class);
+			}
+		});
+
+	}
+
+	@Override
+	protected void tearDown() throws Exception {
+		// TODO Auto-generated method stub
+		super.tearDown();
+	}
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="junit.framework.TestCase"/>
+<fullyQualifiedTypeName name="com.example.medicalbookingapp.BookingDatabase"/>
+<fullyQualifiedTypeName name="android.app.AlertDialog"/>
+<fullyQualifiedTypeName name="android.app.AlertDialog.Builder"/>
+<fullyQualifiedTypeName name="android.test.ActivityInstrumentationTestCase2"/>
+<fullyQualifiedTypeName name="com.example.medicalbookingapp.Home"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.test.suitebuilder.annotation.SmallTest"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.app.Instrumentation.ActivityMonitor"/>
+<fullyQualifiedTypeName name="com.example.medicalbookingapp.R.id"/>
+<fullyQualifiedTypeName name="android.test.TouchUtils"/>
+<fullyQualifiedTypeName name="com.example.medicalbookingapp.BookingPage"/>
+<fullyQualifiedTypeName name="android.view.KeyEvent"/>
+<fullyQualifiedTypeName name="android.test.suitebuilder.annotation.MediumTest"/>
+<fullyQualifiedTypeName name="com.example.medicalbookingapp.MainActivity"/>
+<fullyQualifiedTypeName name="android.text.format.DateFormat"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+</qualifiedTypeNameHistroy>
