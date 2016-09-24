@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="HomeTests" project="MedicalBookingTests" tests="7" started="7" failures="0" errors="2" ignored="0">
+  <testsuite name="Emu [emulator-5554]" time="6.917">
+    <testsuite name="com.example.medicalbookingapp.test.HomeTests" time="6.917">
+      <testcase name="testAboutBtn " classname="com.example.medicalbookingapp.test.HomeTests" time="1.199"/>
+      <testcase name="testLogout " classname="com.example.medicalbookingapp.test.HomeTests" time="0.912">
+        <error>java.lang.SecurityException: Injecting to another application requires INJECT_EVENTS permission&#13;
+at android.os.Parcel.readException(Parcel.java:1327)&#13;
+at android.os.Parcel.readException(Parcel.java:1281)&#13;
+at android.view.IWindowManager$Stub$Proxy.injectPointerEvent(IWindowManager.java:1203)&#13;
+at android.app.Instrumentation.sendPointerSync(Instrumentation.java:902)&#13;
+at android.test.TouchUtils.clickView(TouchUtils.java:344)&#13;
+at com.example.medicalbookingapp.test.HomeTests.testLogout(HomeTests.java:99)&#13;
+at java.lang.reflect.Method.invokeNative(Native Method)&#13;
+at android.test.InstrumentationTestCase.runMethod(InstrumentationTestCase.java:214)&#13;
+at android.test.InstrumentationTestCase.runTest(InstrumentationTestCase.java:199)&#13;
+at android.test.ActivityInstrumentationTestCase2.runTest(ActivityInstrumentationTestCase2.java:192)&#13;
+at android.test.AndroidTestRunner.runTest(AndroidTestRunner.java:169)&#13;
+at android.test.AndroidTestRunner.runTest(AndroidTestRunner.java:154)&#13;
+at android.test.InstrumentationTestRunner.onStart(InstrumentationTestRunner.java:545)&#13;
+at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:1551)&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testLogoutBtn " classname="com.example.medicalbookingapp.test.HomeTests" time="0.878"/>
+      <testcase name="testMakeBookingBtn " classname="com.example.medicalbookingapp.test.HomeTests" time="0.902"/>
+      <testcase name="testStartMakeBookings " classname="com.example.medicalbookingapp.test.HomeTests" time="0.902">
+        <error>java.lang.SecurityException: Injecting to another application requires INJECT_EVENTS permission&#13;
+at android.os.Parcel.readException(Parcel.java:1327)&#13;
+at android.os.Parcel.readException(Parcel.java:1281)&#13;
+at android.view.IWindowManager$Stub$Proxy.injectPointerEvent(IWindowManager.java:1203)&#13;
+at android.app.Instrumentation.sendPointerSync(Instrumentation.java:902)&#13;
+at android.test.TouchUtils.clickView(TouchUtils.java:344)&#13;
+at com.example.medicalbookingapp.test.HomeTests.testStartMakeBookings(HomeTests.java:85)&#13;
+at java.lang.reflect.Method.invokeNative(Native Method)&#13;
+at android.test.InstrumentationTestCase.runMethod(InstrumentationTestCase.java:214)&#13;
+at android.test.InstrumentationTestCase.runTest(InstrumentationTestCase.java:199)&#13;
+at android.test.ActivityInstrumentationTestCase2.runTest(ActivityInstrumentationTestCase2.java:192)&#13;
+at android.test.AndroidTestRunner.runTest(AndroidTestRunner.java:169)&#13;
+at android.test.AndroidTestRunner.runTest(AndroidTestRunner.java:154)&#13;
+at android.test.InstrumentationTestRunner.onStart(InstrumentationTestRunner.java:545)&#13;
+at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:1551)&#13;
+&#13;
+</error>
+      </testcase>
+      <testcase name="testTextView " classname="com.example.medicalbookingapp.test.HomeTests" time="0.904"/>
+      <testcase name="testViewBookingBtn " classname="com.example.medicalbookingapp.test.HomeTests" time="1.178"/>
+    </testsuite>
+  </testsuite>
+</testrun>
