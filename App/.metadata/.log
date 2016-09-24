@@ -1680,3 +1680,54 @@ java.lang.NullPointerException
 
 !ENTRY org.eclipse.epp.logging.aeri.ui 2 6 2016-09-19 18:12:24.083
 !MESSAGE Failed to determine ETAG for remote problems database. Stopping update. Version: 1.0.0.v20150617-0732
+!SESSION 2016-09-25 10:38:57.031 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_NZ
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-09-25 10:39:32.491
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Chris'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.core 4 4 2016-09-25 10:39:34.838
+!MESSAGE Error while creating a link for external folder :C:/Program Files (x86)/Android/android-sdk/sources/android-19
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/.org.eclipse.jdt.core.external.folders/.link2' already exists.
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:313)
+	at org.eclipse.core.internal.resources.Resource.assertLinkRequirements(Resource.java:169)
+	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:657)
+	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:631)
+	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createLinkFolder(ExternalFoldersManager.java:175)
+	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createPendingFolders(ExternalFoldersManager.java:204)
+	at org.eclipse.jdt.core.JavaCore.initializeAfterLoad(JavaCore.java:4125)
+	at org.eclipse.jdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:36)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 367 2016-09-25 10:39:34.841
+!MESSAGE Resource '/.org.eclipse.jdt.core.external.folders/.link2' already exists.
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 1 4 2016-09-25 10:39:43.927
+!MESSAGE The error reporting server is not available. Error reporting will be disabled until next restart. Version: 1.0.0.v20150617-0732
+!STACK 0
+org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs$LogTraceException
+	at org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs$LogTraceException.newTrace(Logs.java:382)
+	at org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs.log(Logs.java:134)
+	at org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs.log(Logs.java:126)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.CheckServerAvailabilityJob.run(CheckServerAvailabilityJob.java:53)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 18 2016-09-25 10:40:33.307
+!MESSAGE Updating the index from remote failed. Version: 1.0.0.v20150617-0732
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ProblemsDatabaseUpdateJob.getEtag(ProblemsDatabaseUpdateJob.java:95)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.ProblemsDatabaseUpdateJob.run(ProblemsDatabaseUpdateJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 6 2016-09-25 10:40:33.310
+!MESSAGE Failed to determine ETAG for remote problems database. Stopping update. Version: 1.0.0.v20150617-0732

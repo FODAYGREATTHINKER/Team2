@@ -18,6 +18,7 @@ public class Home extends Activity {
 	TextView wname;
 	BookingDatabase bd;
 
+	/* Sets everything up on the page */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
@@ -34,7 +35,7 @@ public class Home extends Activity {
 		setupButtons();
 	}
 
-	/* Method that setups button functionality on the hom page */
+	/* Method that setups button functionality on the home page */
 	public void setupButtons() {
 		// Button that links home page with booking page.
 		Button makeBooking = (Button) findViewById(R.id.button1);
@@ -45,7 +46,7 @@ public class Home extends Activity {
 				startActivity(Intent);
 			}
 		});
-
+		// view bookings button
 		Button view = (Button) findViewById(R.id.viewBtn);
 		view.setOnClickListener(new OnClickListener() {
 			@Override
@@ -53,7 +54,7 @@ public class Home extends Activity {
 				view();
 			}
 		});
-
+		// logout button
 		Button logout = (Button) findViewById(R.id.logoutBtn);
 		logout.setOnClickListener(new OnClickListener() {
 			@Override
@@ -65,7 +66,7 @@ public class Home extends Activity {
 		});
 	}
 
-	/* this method can be used for getting username for other methods */
+	/* This method can be used for getting username for other methods */
 	public static String getusername() {
 		return name;
 	}
