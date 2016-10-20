@@ -1,7 +1,0 @@
-package com.example.medicalbookingapp.test;
-import junit.framework.TestCase;;
-public class viewBookingsTest {
-
-	
-	
-}
