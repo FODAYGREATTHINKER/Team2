@@ -68,10 +68,19 @@
         android:layout_below="@+id/spinner3"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="YYYY/MM/DD"
+        android:hint="DD/MM/YYYY"
         android:inputType="date" >
 
         <requestFocus />
     </EditText>
+
+    <TextView
+        android:id="@+id/errorDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Text1"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/Red" />
 
 </RelativeLayout>

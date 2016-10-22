@@ -173,38 +173,39 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f0a000e;
+        public static final int RelativeLayout1=0x7f0a000f;
         public static final int Signup=0x7f0a0001;
         public static final int Text1=0x7f0a000d;
-        public static final int aboutBtn=0x7f0a0011;
-        public static final int action_settings=0x7f0a001f;
-        public static final int back=0x7f0a0013;
+        public static final int aboutBtn=0x7f0a0012;
+        public static final int action_settings=0x7f0a0020;
+        public static final int back=0x7f0a0014;
         public static final int button1=0x7f0a0009;
         public static final int button2=0x7f0a0008;
         public static final int button3=0x7f0a0007;
-        public static final int checkBox1=0x7f0a0018;
-        public static final int checkBox2=0x7f0a0019;
-        public static final int editText1=0x7f0a0017;
+        public static final int checkBox1=0x7f0a0019;
+        public static final int checkBox2=0x7f0a001a;
+        public static final int editText1=0x7f0a0018;
+        public static final int errorDate=0x7f0a000e;
         public static final int layout=0x7f0a0000;
         public static final int login=0x7f0a0005;
-        public static final int logoutBtn=0x7f0a0012;
+        public static final int logoutBtn=0x7f0a0013;
         public static final int logpasswordin=0x7f0a0004;
         public static final int logusernamein=0x7f0a0003;
-        public static final int namein=0x7f0a0014;
+        public static final int namein=0x7f0a0015;
         public static final int notice=0x7f0a0006;
-        public static final int passwordagain=0x7f0a001c;
-        public static final int passwordin=0x7f0a001a;
-        public static final int passwordinagain=0x7f0a001b;
-        public static final int patient =0x7f0a0016;
-        public static final int registernotice=0x7f0a001e;
+        public static final int passwordagain=0x7f0a001d;
+        public static final int passwordin=0x7f0a001b;
+        public static final int passwordinagain=0x7f0a001c;
+        public static final int patient =0x7f0a0017;
+        public static final int registernotice=0x7f0a001f;
         public static final int spinner1=0x7f0a000a;
         public static final int spinner2=0x7f0a000b;
         public static final int spinner3=0x7f0a000c;
         public static final int textView1=0x7f0a0002;
-        public static final int textView2=0x7f0a001d;
-        public static final int usernamein=0x7f0a0015;
-        public static final int viewBtn=0x7f0a0010;
-        public static final int wname=0x7f0a000f;
+        public static final int textView2=0x7f0a001e;
+        public static final int usernamein=0x7f0a0016;
+        public static final int viewBtn=0x7f0a0011;
+        public static final int wname=0x7f0a0010;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

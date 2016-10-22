@@ -18,7 +18,7 @@ public class BookingDatabase extends SQLiteOpenHelper {
 	public static String columnDoctor = "DoctorName";
 	public static String columnDate = "Booking_Date";
 	public static String columnTime = "Booking_Time";
-
+	SQLiteDatabase db = this.getReadableDatabase();
 	public BookingDatabase(Context context) {
 		super(context, DBName2, null, 1);
 	}
@@ -59,5 +59,7 @@ public class BookingDatabase extends SQLiteOpenHelper {
 		return result;
 
 	}
+
+	
 
 }

@@ -60,11 +60,12 @@ public class MainActivity extends Activity {
                 HashMap uandp = new HashMap<String, String>();
                 // assign all the usernames and passwords from database
                 uandp = ldb.getdata();
-
-                // shows error when user press login with invalid details
-                if (username.equals("") || password.equals("")) {
-                    notice.setText("please enter  account details");
+                
+                //check if database is empty
+                if(uandp.isEmpty()){
+                	notice.setText("If you don't have an account, sign up");
                 }
+                
 
                 for (Object key : uandp.keySet()) {
 
@@ -73,31 +74,36 @@ public class MainActivity extends Activity {
 
                         if (password.equals(pass)) {
 
-                            //closes login database
+                            // closes login database
                             ldb.close();
                             Intent Intent = new Intent(MainActivity.this,
                                     Home.class);
-                            //puts username into the next intent
+                            // puts username into the next intent
                             Intent.putExtra("username", username);
-                            
-                            //clears username and password fields 
+
+                            // clears username and password fields
                             usernamein.getText().clear();
                             passwordin.getText().clear();
-                            
+
                             startActivity(Intent);
                             notice.setText(" ");
-                            
+
                             break;
 
                         } else {
                             shownoticepass();
                         }
-                        
-                    }else{
-                        notice.setText("invaid account details!");
+
+                    } else {
+                        notice.setText("Invalid account details! If you don't have an account, sign up");
                     }
-                    
+
                 }
+               //checks for username
+                if (username.equals("") || password.equals("")) {
+                notice.setText("please enter username and password!");
+                }
+                
 
             }
 
