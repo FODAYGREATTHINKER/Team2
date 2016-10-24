@@ -1,6 +1,6 @@
 ## MedicalApp
 
-## App Description
+## App Description and features
 
 
 <p align="center">
