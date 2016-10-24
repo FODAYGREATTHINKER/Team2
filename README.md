@@ -57,4 +57,4 @@ TODO: Write usage instructions
 The developers of this application are:
 Mohammed Talib, Chris Sequeira,Harindu Tllekeratne, Mubasher Khan
 ## License
-TODO: Write license
+This application is free to use but mention the above team members names in your application if you are using our code.
