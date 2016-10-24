@@ -1,7 +1,6 @@
 package com.example.medicalbookingapp;
 
 import java.util.HashMap;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -14,12 +13,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
+ * Login page of the app
+ *
+ */
 public class MainActivity extends Activity {
 	// components reference
-	Button Register, login, about;
-	EditText usernamein, passwordin;
-	TextView notice;
+	private Button Register, login, about;
+	private EditText usernamein, passwordin;
+	private TextView notice;
 
+	/**
+	 * Sets up all elements on page
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,28 +43,20 @@ public class MainActivity extends Activity {
 			}
 
 			public void view() {
-
 				StringBuffer buffer = new StringBuffer();
-				buffer.append("This is the first New Zealand medical application  "
-						+ "\n");
-				buffer.append("which allows New Zealand residents to book  "
-						+ "\n");
-				buffer.append("doctor’s appointment based on the area.  "
-						+ "\n");
+				buffer.append("This is the first New Zealand medical application  " + "\n");
+				buffer.append("which allows New Zealand residents to book  " + "\n");
+				buffer.append("doctor’s appointment based on the area.  " + "\n");
 				Display("About This Application", buffer.toString());
 				return;
 			}
-
 		});
 
 		Register.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// links patients register and starts the activity
-				Intent Intent = new Intent(MainActivity.this,
-						PatientRegister.class);
-				// new tasks clear flags
-				// Intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+				Intent Intent = new Intent(MainActivity.this, PatientRegister.class);
 				startActivity(Intent);
 			}
 		});
@@ -73,10 +71,8 @@ public class MainActivity extends Activity {
 				passwordin = (EditText) findViewById(R.id.logpasswordin);
 				notice = (TextView) findViewById(R.id.notice);
 
-				String username = String.valueOf(usernamein.getText()
-						.toString());
-				String password = String.valueOf(passwordin.getText()
-						.toString());
+				String username = String.valueOf(usernamein.getText().toString());
+				String password = String.valueOf(passwordin.getText().toString());
 
 				// creates a new object to get access to the database
 				Logindatabase ldb = new Logindatabase(getBaseContext());
@@ -99,8 +95,7 @@ public class MainActivity extends Activity {
 
 							// closes login database
 							ldb.close();
-							Intent Intent = new Intent(MainActivity.this,
-									Home.class);
+							Intent Intent = new Intent(MainActivity.this, Home.class);
 							// puts username into the next intent
 							Intent.putExtra("username", username);
 
@@ -133,7 +128,7 @@ public class MainActivity extends Activity {
 
 	}
 
-	// shows error
+	/** shows error */
 	public void shownoticepass() {
 		notice.setText("Wrong Password!");
 
@@ -157,13 +152,15 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	/*
-	 * Method that builds an alert dialog that shows the About application to the user.
+
+	/**
+	 * Method that builds an alert dialog that shows the About application to
+	 * the user.
 	 */
-	public void Display(String message, String string) {
+	public void Display(String title, String string) {
 		AlertDialog.Builder build = new AlertDialog.Builder(this);
 		build.setCancelable(true);
-		build.setTitle(message);
+		build.setTitle(title);
 		build.setMessage(string);
 		build.show();
 	}

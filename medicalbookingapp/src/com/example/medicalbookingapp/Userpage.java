@@ -11,14 +11,21 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Page for viewing user's profile details
+ *
+ */
 public class Userpage extends Activity {
 
-	TextView name, username, Age, Gender;
-	TextView changetext, currentpassword, newpassword, passwordnotice, viewcondition;
-	Button confirm, cancel, changepassword;
-	ImageButton profileBack;
-	String user;
+	private TextView name, username, Age, Gender;
+	private TextView changetext, currentpassword, newpassword, passwordnotice, viewcondition;
+	private Button confirm, cancel, changepassword;
+	private ImageButton profileBack;
+	private String user;
 
+	/**
+	 * Sets up elements on page.
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profile_page);
@@ -27,12 +34,14 @@ public class Userpage extends Activity {
 		if (extras != null) {
 			user = extras.getString("username");
 		}
+		// gets user details
 		getuserdetails(user);
+		// used for when clicked change password
 		changepassword();
 
 		profileBack = (ImageButton) findViewById(R.id.profileBackBtn);
+		// goes back to home
 		profileBack.setOnClickListener(new View.OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(Userpage.this, Home.class);
@@ -41,9 +50,9 @@ public class Userpage extends Activity {
 
 			}
 		});
-
 	}
 
+	/** instantiate elements */
 	public void setupelements() {
 		name = (TextView) findViewById(R.id.nameid);
 		username = (TextView) findViewById(R.id.usernameid);
@@ -54,7 +63,7 @@ public class Userpage extends Activity {
 
 	}
 
-	// contains method for changing password
+	/** contains method for changing password */
 	public void changepassword() {
 		changepassword = (Button) findViewById(R.id.changePassBtn);
 		changepassword.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +97,7 @@ public class Userpage extends Activity {
 		});
 	}
 
-	// this method checks if inputs are correct and notice accordingly
+	/** this method checks if inputs are correct and notice accordingly */
 	public void comparepasswords() {
 		String currentpas = String.valueOf(currentpassword.getText().toString());
 		String newpas = String.valueOf(newpassword.getText().toString());
@@ -117,13 +126,19 @@ public class Userpage extends Activity {
 		}
 	}
 
+	/**
+	 * Method to update database with new password.
+	 * 
+	 * @param newpas
+	 *            the new password to be updated in database
+	 */
 	public void updatedatabase(String newpas) {
 		Logindatabase ldb = new Logindatabase(getBaseContext());
 		ldb.updatepassword(user, newpas);
 		Toast.makeText(getApplicationContext(), "Password changed", Toast.LENGTH_LONG).show();
 	}
 
-	// set password inputs visible
+	/** set password inputs visible */
 	public void setvisible() {
 		changepassword.setVisibility(View.INVISIBLE);
 		changetext.setVisibility(View.VISIBLE);
@@ -133,14 +148,14 @@ public class Userpage extends Activity {
 		cancel.setVisibility(View.VISIBLE);
 	}
 
-	// clears all text in elements
+	/** clears all text in elements */
 	public void clearfields() {
 		passwordnotice.setText("");
 		currentpassword.setText("");
 		newpassword.setText("");
 	}
 
-	// sets password inputs invisible
+	/** sets password inputs invisible */
 	public void setinvisible() {
 		newpassword.setVisibility(View.INVISIBLE);
 		changetext.setVisibility(View.INVISIBLE);
@@ -150,7 +165,7 @@ public class Userpage extends Activity {
 		changepassword.setVisibility(View.VISIBLE);
 	}
 
-	// gets current password from database
+	/** gets current password from database */
 	public String getCurrentpassword() {
 		String pass = "";
 		Logindatabase ldb = new Logindatabase(getBaseContext());
@@ -161,7 +176,7 @@ public class Userpage extends Activity {
 		return pass;
 	}
 
-	// get user data from the database
+	/** get user data from the database */
 	public void getuserdetails(String user) {
 		Logindatabase ldb = new Logindatabase(getBaseContext());
 		Cursor view = ldb.Getuserdetails(user);
@@ -171,8 +186,11 @@ public class Userpage extends Activity {
 			Gender.setText(view.getString(3));// 3
 			username.setText(view.getString(4));// 5
 
-			viewcondition.setText(view.getString(2));// 2
-
+			if (view.getString(2).equals(" ") || view.getString(2).isEmpty()) {
+				viewcondition.setText("None");
+			} else {
+				viewcondition.setText(view.getString(2));// 2
+			}
 		}
 	}
 

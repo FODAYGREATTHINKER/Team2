@@ -1,17 +1,25 @@
 package com.example.medicalbookingapp;
 
+/**
+ * Class to add a patient.
+ *
+ */
 public class Patient {
-
+	// declare private variables
 	private String name;
 	private String Username;
 	private String password;
 
-	/*
-	 * private static Patient instance =new Patient(); private Patient(){};
+	/**
+	 * Constructor for the class
 	 * 
-	 * private static Patient getInstance(){ return instance; }
+	 * @param name
+	 *            name of patient
+	 * @param Username
+	 *            of patient
+	 * @param Password
+	 *            of patient
 	 */
-
 	public Patient(String name, String Username, String Password) {
 		this.name = name;
 		this.Username = Username;
@@ -19,6 +27,7 @@ public class Patient {
 
 	}
 
+	// gettters and setters
 	public String getName() {
 		return name;
 	}

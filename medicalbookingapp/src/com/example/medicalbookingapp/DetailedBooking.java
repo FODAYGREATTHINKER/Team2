@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+/**
+ * Page to view a detailed booking from the view booking page
+ *
+ */
 public class DetailedBooking extends Activity {
 	public TextView bkid;
 	public TextView medCent;
@@ -17,10 +21,13 @@ public class DetailedBooking extends Activity {
 	public TextView time;
 	public Button cancel;
 	public ImageButton back;
-	BookingDatabase bookingRow;
+	private BookingDatabase bookingRow;
 	private String chosenBking;
 	private int rowID;
 
+	/**
+	 * Sets up elements on page.
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.detailed_booking);
@@ -35,6 +42,9 @@ public class DetailedBooking extends Activity {
 
 	}
 
+	/**
+	 * Sets up textviews by finding reference in xml
+	 */
 	public void setupTextViews() {
 		bkid = (TextView) findViewById(R.id.bkIDInfo);
 		medCent = (TextView) findViewById(R.id.medCentInfo);
@@ -43,6 +53,9 @@ public class DetailedBooking extends Activity {
 		time = (TextView) findViewById(R.id.timeInfo);
 	}
 
+	/**
+	 * adds booking details to textview by getting specific row
+	 */
 	public void setDetails() {
 
 		Cursor getRow = bookingRow.getBookingRow(rowID);
@@ -54,6 +67,9 @@ public class DetailedBooking extends Activity {
 		time.setText(getRow.getString(5));
 	}
 
+	/**
+	 * removes booking from database when button is pressed
+	 */
 	public void cancelBk() {
 		cancel = (Button) findViewById(R.id.btnCancel);
 		cancel.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +82,9 @@ public class DetailedBooking extends Activity {
 		});
 	}
 
+	/**
+	 * takes user back to view bookings page.
+	 */
 	public void back() {
 		back = (ImageButton) findViewById(R.id.detailBackBtn);
 		back.setOnClickListener(new View.OnClickListener() {

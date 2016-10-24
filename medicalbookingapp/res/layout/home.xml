@@ -43,28 +43,6 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/makeBkingBtn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/header"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
-        android:background="@drawable/round_button"
-        android:text="Make Booking"
-        android:textColor="#FFF" />
-
-    <Button
-        android:id="@+id/viewBtn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/makeBkingBtn"
-        android:layout_below="@+id/makeBkingBtn"
-        android:layout_marginTop="38dp"
-        android:background="@drawable/round_button"
-        android:text="Future Bookings"
-        android:textColor="#FFF" />
-
-    <Button
         android:id="@+id/history"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -76,12 +54,45 @@
         android:textColor="#FFF" />
 
     <Button
-        android:id="@+id/logoutBtn"
+        android:id="@+id/viewBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/makeBkingBtn"
+        android:layout_below="@+id/makeBkingBtn"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/round_button"
+        android:text="Future Bookings"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/makeBkingBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/round_button"
+        android:text="Make Booking"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/medical"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/history"
         android:layout_below="@+id/history"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/round_button"
+        android:text="Medical Centre Details"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/medical"
+        android:layout_below="@+id/medical"
+        android:layout_marginTop="21dp"
         android:background="@drawable/round_button"
         android:text="Logout"
         android:textColor="#FFF" />

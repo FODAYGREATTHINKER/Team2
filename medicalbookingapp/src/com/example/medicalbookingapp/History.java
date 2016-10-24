@@ -3,7 +3,6 @@ package com.example.medicalbookingapp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -14,14 +13,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+/**
+ * Page to view all past bookings made
+ * 
+ */
 public class History extends Activity {
 
 	private ImageButton back;
 	private Button history, delete;
 	private BookingDatabase bd;
-
 	private String user;
 
+	/**
+	 * setups up everything on history page.
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.history);
@@ -31,13 +36,19 @@ public class History extends Activity {
 			user = extras.getString("username");
 		}
 
+		// creates elements
+		setupelements();
+
+	}
+
+	/** create elements and instantiate them */
+	public void setupelements() {
 		history = (Button) findViewById(R.id.history);
 		delete = (Button) findViewById(R.id.delete);
 		back = (ImageButton) findViewById(R.id.histBackBtn);
 		bd = new BookingDatabase(this);
 
 		history.setOnClickListener(new View.OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				view(user);
@@ -46,7 +57,6 @@ public class History extends Activity {
 		});
 
 		delete.setOnClickListener(new View.OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				deletehistory(user);
@@ -55,7 +65,6 @@ public class History extends Activity {
 		});
 
 		back.setOnClickListener(new View.OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(History.this, Home.class);
@@ -64,9 +73,15 @@ public class History extends Activity {
 
 			}
 		});
-
 	}
 
+	/**
+	 * checks if the date in the future
+	 * 
+	 * @param day
+	 *            to check
+	 * @return true if not future date.
+	 */
 	public boolean notfuture(String day) {
 		boolean notin = false;
 		SimpleDateFormat fm = new SimpleDateFormat("dd/MM/yyyy");
@@ -82,6 +97,12 @@ public class History extends Activity {
 		return notin;
 	}
 
+	/**
+	 * shows the bookings
+	 * 
+	 * @param name
+	 *            username of app user to find bookings by.
+	 */
 	public void view(String name) {
 		Cursor view = bd.getBookings(name);
 		if (view.getCount() == 0) {
@@ -107,15 +128,18 @@ public class History extends Activity {
 		if (count > 0) {
 			buffer("Bookings", buffer.toString());
 		}
-
 		if (count == 0) {
 
 			buffer("No Bookings", "You have no past booking!");
 		}
-
 	}
 
-	// deletes history
+	/**
+	 * Deletes history
+	 * 
+	 * @param name
+	 *            username of app user to find bookings and delete them
+	 */
 	public void deletehistory(String name) {
 		Cursor view = bd.getBookings(name);
 		int count = view.getCount();
@@ -127,7 +151,7 @@ public class History extends Activity {
 
 			BookingDatabase helper = new BookingDatabase(this);
 			SQLiteDatabase bd = helper.getWritableDatabase();
-			String Query = "Delete from  Patient_Bookings  where Booking_Date < strftime('%d-%m-%Y', 'now') AND Customer_username like '%"
+			String Query = "Delete from  Patient_Bookings  where Booking_Date < strftime('%Y-%m-%d', 'now') AND Customer_username like '%"
 					+ name + "%'";
 			bd.execSQL(Query);
 			if (view.getCount() < count) {
@@ -139,11 +163,18 @@ public class History extends Activity {
 		}
 	}
 
-	// prints the bookings
-	public void buffer(String message, String msg) {
+	/**
+	 * Creates an alert dialog to print bookings.
+	 * 
+	 * @param title
+	 *            title of alert dialog
+	 * @param msg
+	 *            message to be set
+	 */
+	public void buffer(String title, String msg) {
 		AlertDialog.Builder build = new AlertDialog.Builder(this);
 		build.setCancelable(true);
-		build.setTitle(message);
+		build.setTitle(title);
 		build.setMessage(msg);
 		build.show();
 	}

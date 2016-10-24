@@ -2,7 +2,6 @@ package com.example.medicalbookingapp;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -14,15 +13,22 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+/**
+ * Page to view current bookings of the user.
+ *
+ */
 public class ViewBookingPage extends Activity {
 
-	BookingDatabase viewBookings;
+	private BookingDatabase viewBookings;
 	private ListView lv;
 	private ImageButton backBtn;
 	private Cursor view;
 	private static String bkNum;
 	private String username;
 
+	/**
+	 * Creates the elements on view bookings page.
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.booking_list);
@@ -31,7 +37,7 @@ public class ViewBookingPage extends Activity {
 		username = Home.getusername();
 		lv = (ListView) findViewById(R.id.listView1);
 		backBtn = (ImageButton) findViewById(R.id.backBtn);
-		view = viewBookings.getBookings(username);
+		view = viewBookings.getCurrentBookings(username);
 
 		populateListView();
 
@@ -40,6 +46,9 @@ public class ViewBookingPage extends Activity {
 
 	}
 
+	/**
+	 * Populates a list view of all current bookings of user.
+	 */
 	public void populateListView() {
 		List<String> bkList = new ArrayList<String>();
 		ArrayAdapter<String> arrayAdapter;
@@ -55,6 +64,9 @@ public class ViewBookingPage extends Activity {
 		}
 	}
 
+	/**
+	 * back button that sends user back to home page.
+	 */
 	public void backToHome() {
 		backBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -66,6 +78,10 @@ public class ViewBookingPage extends Activity {
 		});
 	}
 
+	/**
+	 * Method to send user to detailed bookings page when clicked on a certain
+	 * booking.
+	 */
 	public void chosenBooking() {
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
@@ -81,6 +97,11 @@ public class ViewBookingPage extends Activity {
 		});
 	}
 
+	/**
+	 * to get the booking number chosen when clicked on certain booking.
+	 * 
+	 * @return the booking id
+	 */
 	public static String getBkNum() {
 		return bkNum;
 	}
