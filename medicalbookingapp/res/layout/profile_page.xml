@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/profileHeader"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#009688" >
+
+        <ImageButton
+            android:id="@+id/profileBackBtn"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_arrow_back_black_24dp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Your Profile"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFF" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/profileHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_account_circle_black_48dp" />
+
+    <TextView
+        android:id="@+id/usernameid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tVUsername"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="67dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="10dp"
+        android:text="Age:" />
+
+    <TextView
+        android:id="@+id/ageid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignRight="@+id/nameid"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/genderid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView6"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_alignRight="@+id/ageid"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/condiview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignLeft="@+id/genderid"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="10dp"
+        android:text="Gender:" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/condiview"
+        android:text="Medical Conditions:" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tVUsername"
+        android:layout_below="@+id/view2"
+        android:layout_marginTop="5dp"
+        android:text="Name:" />
+
+    <Button
+        android:id="@+id/changePassBtn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/condiview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/round_button"
+        android:text="Change password"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/imgProfile"
+        android:layout_centerHorizontal="true"
+        android:background="#d3d3d3" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_alignLeft="@+id/view1"
+        android:layout_below="@+id/usernameid"
+        android:layout_marginTop="5dp"
+        android:background="#d3d3d3" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_above="@+id/genderid"
+        android:layout_alignLeft="@+id/view2"
+        android:background="#d3d3d3" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_above="@+id/ageid"
+        android:layout_alignLeft="@+id/view2"
+        android:layout_margin="5dp"
+        android:background="#d3d3d3" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_above="@+id/condiview"
+        android:layout_alignLeft="@+id/view3"
+        android:background="#d3d3d3" />
+
+    <EditText
+        android:id="@+id/newpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currentpassword"
+        android:layout_below="@+id/currentpassword"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="New password"
+        android:inputType="textPassword"
+        android:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/currentpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changePassBtn"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Current password"
+        android:inputType="textPassword"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/passwordconfirm"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/cancel"
+        android:layout_alignBottom="@+id/cancel"
+        android:layout_alignLeft="@+id/newpassword"
+        android:background="@drawable/round_button"
+        android:text="Confirm"
+        android:textColor="#FFF"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignRight="@+id/newpassword"
+        android:layout_below="@+id/newpassword"
+        android:background="@drawable/round_button"
+        android:text="Cancel"
+        android:textColor="#FFF"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/textchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/changePassBtn"
+        android:layout_alignBottom="@+id/changePassBtn"
+        android:layout_alignRight="@+id/imgProfile"
+        android:text="   Change password"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/passwordnotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/currentpassword"
+        android:layout_alignRight="@+id/condiview"
+        android:textColor="@color/Red"
+        android:textColorHint="@color/Red" />
+
+    <TextView
+        android:id="@+id/tVUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currentpassword"
+        android:layout_below="@+id/imgProfile"
+        android:text="Username:" />
+
+    <TextView
+        android:id="@+id/nameid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView4"
+        android:layout_alignLeft="@+id/usernameid"
+        android:text="TextView" />
+
+</RelativeLayout>
