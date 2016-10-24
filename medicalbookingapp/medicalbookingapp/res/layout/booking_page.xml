@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#009688" >
+
+        <ImageButton
+            android:id="@+id/button3"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:text="Back" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Make a Booking"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFF" />
+    </RelativeLayout>
+
+    <DatePicker
+        android:id="@+id/bookDate"
+        android:layout_width="250dip"
+        android:layout_height="120dip"
+        android:layout_above="@+id/back1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp" />
+
+    <Button
+        android:id="@+id/back1"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_button"
+        android:text="Confirm Booking"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="14dp"
+        android:spinnerMode="dialog" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/spinner1"
+        android:layout_below="@+id/spinner1"
+        android:layout_marginBottom="5dp"
+        android:spinnerMode="dialog" />
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/spinner2"
+        android:layout_below="@+id/welcHeader"
+        android:spinnerMode="dialog" />
+
+    <TextView
+        android:id="@+id/welcHeader"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bookDate"
+        android:layout_alignRight="@+id/bookDate"
+        android:layout_below="@+id/spinner2"
+        android:layout_marginTop="21dp"
+        android:text="Select Date and Time." />
+
+</RelativeLayout>
