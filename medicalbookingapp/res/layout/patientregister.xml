@@ -3,78 +3,127 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeeeee"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/back"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
-        android:text="back" />
+        android:background="#009688" >
 
-    <EditText
-        android:id="@+id/namein"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/usernamein"
-        android:layout_below="@+id/patient "
-        android:layout_marginTop="22dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="text"
-        android:nextFocusDown="@+id/editText1" />
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_arrow_back_black_24dp" />
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/namein"
-        android:layout_below="@+id/namein"
-        android:layout_marginTop="21dp"
-        android:ems="10"
-        android:hint="Age"
-        android:inputType="number"
-        android:nextFocusDown="@+id/checkBox1" />
+        <TextView
+            android:id="@+id/patient "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:text="Patient Signup"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFF" />
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/patient "
+        android:id="@+id/registernotice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/back"
-        android:layout_alignBottom="@+id/back"
         android:layout_centerHorizontal="true"
-        android:text="Patient Signup"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="15dp"
-        android:layout_toLeftOf="@+id/back"
-        android:nextFocusDown="@+id/usernamein"
-        android:text="Male" />
-
-    <Button
-        android:id="@+id/Signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="19dp"
-        android:text="Signup" />
+        android:textColor="@color/Red"
+        android:textColorHint="@color/Red" />
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/checkBox1"
-        android:layout_alignBottom="@+id/checkBox1"
-        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignRight="@+id/usernamein"
+        android:layout_centerVertical="true"
         android:text="Female" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usernamein"
+        android:layout_centerVertical="true"
+        android:nextFocusDown="@+id/usernamein"
+        android:text="Male" />
+
+    <EditText
+        android:id="@+id/medicalcondition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/checkBox2"
+        android:layout_alignLeft="@+id/checkBox1"
+        android:ems="10"
+        android:hint="Medical conditions"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/currentpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/medicalcondition"
+        android:layout_alignRight="@+id/passwordin"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="number"
+        android:nextFocusDown="@+id/checkBox1" />
+
+    <EditText
+        android:id="@+id/namein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/currentpassword"
+        android:layout_alignLeft="@+id/medicalcondition"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="text"
+        android:nextFocusDown="@+id/currentpassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/welcHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/namein"
+        android:layout_alignRight="@+id/tVMedCen"
+        android:text="Personal details" />
+
+    <TextView
+        android:id="@+id/tVMedCen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Account details" />
+
+    <EditText
+        android:id="@+id/usernamein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tVMedCen"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="text"
+        android:nextFocusDown="@+id/passwordin" />
 
     <EditText
         android:id="@+id/passwordin"
@@ -97,43 +146,15 @@
         android:hint="Password again"
         android:inputType="textPassword" />
 
-    <EditText
-        android:id="@+id/usernamein"
+    <Button
+        android:id="@+id/Signup"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="text"
-        android:nextFocusDown="@+id/passwordin" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/registernotice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/back"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/Red"
-        android:textColorHint="@color/Red" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/registernotice"
-        android:text="Personal details" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Account details" />
+        android:layout_height="30dp"
+        android:layout_alignRight="@+id/passwordagain"
+        android:layout_alignLeft="@+id/passwordagain"
+        android:layout_below="@+id/passwordagain"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/round_button"
+        android:text="Signup" />
 
 </RelativeLayout>

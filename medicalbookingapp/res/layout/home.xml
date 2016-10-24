@@ -1,77 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   android:id="@+id/RelativeLayout1"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   android:orientation="vertical" >
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical" >
 
-   <TextView
-       android:id="@+id/wname"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignBaseline="@+id/textView1"
-       android:layout_alignBottom="@+id/textView1"
-       android:layout_marginLeft="22dp"
-       android:layout_toRightOf="@+id/textView1"
-       android:text="Large Text"
-       android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#009688"
+        android:gravity="center" >
 
-   <TextView
-       android:id="@+id/textView1"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignParentLeft="true"
-       android:layout_alignParentTop="true"
-       android:layout_marginLeft="40dp"
-       android:layout_marginTop="27dp"
-       android:text="Welcome"
-       android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/welcHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.06"
+            android:paddingLeft="20dp"
+            android:text="Welcome"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFF" />
 
-   <Button
-       android:id="@+id/button1"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/wname"
-       android:layout_centerHorizontal="true"
-       android:layout_marginTop="32dp"
-       android:background="@color/Teal"
-       android:text="Make Booking"
-       android:textColor="@color/White" />
+        <TextView
+            android:id="@+id/wusername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.07"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFF" />
 
-   <Button
-       android:id="@+id/viewBtn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/button1"
-       android:layout_alignRight="@+id/button1"
-       android:layout_below="@+id/button1"
-       android:layout_marginTop="30dp"
-       android:background="@color/Teal"
-       android:text="View Booking"
-       android:textColor="@color/White" />
+        <ImageButton
+            android:id="@+id/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/ic_account_box_black_36dp" />
+    </LinearLayout>
 
-   <Button
-       android:id="@+id/aboutBtn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/viewBtn"
-       android:layout_alignRight="@+id/viewBtn"
-       android:layout_below="@+id/viewBtn"
-       android:layout_marginTop="26dp"
-       android:background="@color/Teal"
-       android:text="About"
-       android:textColor="@color/White" />
+    <Button
+        android:id="@+id/makeBkingBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/round_button"
+        android:text="Make Booking"
+        android:textColor="#FFF" />
 
-   <Button
-       android:id="@+id/logoutBtn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/aboutBtn"
-       android:layout_alignRight="@+id/aboutBtn"
-       android:layout_below="@+id/aboutBtn"
-       android:layout_marginTop="30dp"
-       android:background="@color/Teal"
-       android:text="Logout"
-       android:textColor="@color/White" />
+    <Button
+        android:id="@+id/viewBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/makeBkingBtn"
+        android:layout_below="@+id/makeBkingBtn"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/round_button"
+        android:text="Future Bookings"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/history"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/viewBtn"
+        android:layout_below="@+id/viewBtn"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/round_button"
+        android:text="History "
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/history"
+        android:layout_below="@+id/history"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/round_button"
+        android:text="Logout"
+        android:textColor="#FFF" />
 
 </RelativeLayout>

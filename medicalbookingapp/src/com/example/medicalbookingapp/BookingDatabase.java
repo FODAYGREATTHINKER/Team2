@@ -10,15 +10,20 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class BookingDatabase extends SQLiteOpenHelper {
-	private static String DBName2 = "Booking.db";
-	private static String TableName = "Patient_Bookings";
-	public static String column_ID = "Booking_ID";
-	public static String columnUsername = "Customer_username";
-	public static String columnMedicalcentre = "MedicalCentres";
-	public static String columnDoctor = "DoctorName";
-	public static String columnDate = "Booking_Date";
-	public static String columnTime = "Booking_Time";
+	public static String DBName2 = "Booking.db";
+	public static final String tableName = "Patient_Bookings";
+	public static final String columnID = "Booking_ID";
+	public static final String columnUsername = "Customer_username";
+	public static final String columnMedicalcentre = "MedicalCentres";
+	public static final String columnDoctor = "DoctorName";
+	public static final String columnDate = "Booking_Date";
+	public static final String columnTime = "Booking_Time";
+
+	public static final String[] ALL_KEYS = new String[] { columnID, columnUsername, columnMedicalcentre, columnDoctor,
+			columnDate, columnTime };
+
 	SQLiteDatabase db = this.getReadableDatabase();
+
 	public BookingDatabase(Context context) {
 		super(context, DBName2, null, 1);
 	}
@@ -26,40 +31,61 @@ public class BookingDatabase extends SQLiteOpenHelper {
 	/* This method create the database */
 	public void onCreate(SQLiteDatabase db) {
 		// creates table
-		db.execSQL("create table Patient_Bookings"
-				+ "(Booking_ID integer primary key autoincrement not null,Customer_username text,MedicalCentres text, DoctorName text, Booking_Date text, Booking_Time Text)");
+		db.execSQL("create table " + tableName + " (" + columnID + " integer primary key autoincrement, "
+				+ columnUsername + " text, " + columnMedicalcentre + " text, " + columnDoctor
+				+ " text, " + columnDate + " text, " + columnTime + " string" + ");");
 
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		db.execSQL("DROP TABLE IF EXIST Patient_Bookings");
+		db.execSQL("DROP TABLE IF EXIST "+tableName);
 		onCreate(db);
 	}
 
 	/* Method that inserts the values into the bookings table in the database */
-	public void insertBooking(String username, String medicalCentre,
-			String doctorName, String bookingDate, String bookingTime) {
+	public void insertBooking(String username, String medicalCentre, String doctorName, String bookingDate,
+			String bookingTime) {
 
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues content = new ContentValues();
-		content.put("Customer_username", username);
-		content.put("MedicalCentres", medicalCentre);
-		content.put("DoctorName", doctorName);
-		content.put("Booking_Date", (bookingDate));
-		content.put("Booking_Time", (bookingTime));
-		db.insert("Patient_Bookings", null, content);
+		content.put(columnUsername, username);
+		content.put(columnMedicalcentre, medicalCentre);
+		content.put(columnDoctor, doctorName);
+		content.put(columnDate, (bookingDate));
+		content.put(columnTime, (bookingTime));
+		db.insert(tableName, null, content);
 	}
 
 	/* Method that gets the bookings made from the database */
 	public Cursor getBookings(String usName) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		Cursor result = db.rawQuery("select * from " + TableName
-				+ " where Customer_username LIKE '" + usName + "'", null);
+		Cursor result = db.rawQuery("select * from " + tableName + " where Customer_username LIKE '" + usName + "'",
+				null);
 		return result;
 
 	}
-
 	
+	public Cursor getCurrentBookings(String usName) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor result = db.rawQuery("select * from " + tableName + " where Customer_username LIKE '" + usName
+				+ "' AND Booking_Date >= date('now')", null);
+
+		return result;
+}
+
+	public Cursor getBookingRow(int id) {
+		String where = columnID + "=" + id;
+		Cursor c = db.query(true, tableName, ALL_KEYS, where, null, null, null, null, null);
+		if (c != null) {
+			c.moveToFirst();
+		}
+		return c;
+	}
+	
+	public boolean deleteRow(long rowId) {
+		String where = columnID + "=" + rowId;
+		return db.delete(tableName, where, null) != 0;
+	}
 
 }
