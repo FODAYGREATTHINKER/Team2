@@ -10,6 +10,12 @@
 
 ## Installation
 TODO: Describe the installation process
+To install the application just click on the clone or download option. 
+Then click on download ZIP which will download the zip file to whatever location you have decided.
+Find the Team2-master.zip file and then click on the extract all options.
+Open up eclipse and make sure you have the Android plugin in eclipse.
+Click on file, import. Under Android click on Existing Android code into workspace. Click on browse and find location of Team2-master.
+
 ## Usage
 TODO: Write usage instructions
 ## Contributing
