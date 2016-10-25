@@ -25,8 +25,6 @@ TODO: Describe the installation process
 3. Android Studio - We are not using Android Studio because our laptops aren't sufficient enough to run it properly.
 4. Android ADT Plugin - We used the android ADT Plugin on eclipse to install the needed software to develope on it.
 
-## Usage
-TODO: Write usage instructions
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -34,7 +32,6 @@ TODO: Write usage instructions
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## Methods
 
 ## Features
 1. The application has a sign up feature where the user can make an account by filling in the details.
@@ -52,9 +49,9 @@ TODO: Write usage instructions
 3. After you get confirmation you can then view your booking or make another booking.
 4. Sign out when you have finished using the application.
 
-
 ## Credits and Team Details
 The developers of this application are:
 Mohammed Talib, Chris Sequeira,Harindu Tllekeratne, Mubasher Khan
+
 ## License
 This application is free to use but mention the above team members names in your application if you are using our code.
