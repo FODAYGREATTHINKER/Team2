@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="#009688" >
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_arrow_back_black_24dp" />
+
+        <TextView
+            android:id="@+id/patient "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:text="Patient Signup"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFF" />
+    </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/usernamein"
+        android:layout_centerVertical="true"
+        android:text="Female" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usernamein"
+        android:layout_centerVertical="true"
+        android:nextFocusDown="@+id/usernamein"
+        android:text="Male" />
+
+    <EditText
+        android:id="@+id/namein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/currentpassword"
+        android:layout_alignLeft="@+id/medicalcondition"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="text"
+        android:nextFocusDown="@+id/currentpassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/welcHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/namein"
+        android:layout_alignRight="@+id/tVMedCen"
+        android:text="Personal details" />
+
+    <TextView
+        android:id="@+id/tVMedCen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Account details" />
+
+    <EditText
+        android:id="@+id/usernamein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tVMedCen"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="text"
+        android:nextFocusDown="@+id/passwordin" />
+
+    <EditText
+        android:id="@+id/passwordin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usernamein"
+        android:layout_below="@+id/usernamein"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:nextFocusDown="@+id/passwordinagain" />
+
+    <EditText
+        android:id="@+id/passwordagain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passwordin"
+        android:layout_below="@+id/passwordin"
+        android:ems="10"
+        android:hint="Password again"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/Signup"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/passwordagain"
+        android:layout_alignRight="@+id/passwordagain"
+        android:layout_below="@+id/passwordagain"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/round_button"
+        android:text="Signup" />
+
+    <TextView
+        android:id="@+id/registernotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox2"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/Red"
+        android:textColorHint="@color/Red" />
+
+    <EditText
+        android:id="@+id/currentpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/medicalcondition"
+        android:layout_alignLeft="@+id/namein"
+        android:layout_alignRight="@+id/namein"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="number"
+        android:nextFocusDown="@+id/checkBox1" />
+
+    <EditText
+        android:id="@+id/medicalcondition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/checkBox2"
+        android:layout_alignLeft="@+id/checkBox1"
+        android:ems="10"
+        android:hint="Medical conditions"
+        android:inputType="text"
+        android:nextFocusDown="@+id/usernamein" />
+
+</RelativeLayout>
